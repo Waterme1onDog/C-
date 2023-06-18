@@ -1,10 +1,12 @@
-﻿Console.Write("Введите первое число:");
+﻿Console.Write("Введите первое число: ");
 int num1 = Convert.ToInt32(Console.ReadLine());
-Console.Write("Введите второе число:");
+Console.Write("Введите второе число: ");
 int num2 = Convert.ToInt32(Console.ReadLine());
-Console.Write("Введите третье число:");
-int num3 = Convert.ToInt32(Console.ReadLine());
-int maxnumber = num1;
-   if (num2>maxnumber) maxnumber = num2;
-   if (num3>maxnumber) maxnumber = num3;
-Console.WriteLine($"Наибольшее из трех чисел = {maxnumber}");
+    if (num1>num2)
+    {
+        Console.WriteLine($"Наибольшее число = {num1} Наименьшее число = {num2} ");
+    }
+    else
+    {
+        Console.WriteLine($"Наибольшее число = {num2} Наименьшее число = {num1} ");
+    }
