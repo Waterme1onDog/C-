@@ -1,0 +1,11 @@
+﻿Random rnd = new Random();
+int a = rnd.Next(0,10);
+int b = rnd.Next(0,11);
+int c = rnd.Next(0,12);
+int d = rnd.Next(0,13);
+int f = rnd.Next(0,14);
+int g = rnd.Next(0,15);
+int h = rnd.Next(0,16);
+int i = rnd.Next(0,17);
+int[] array = {a,b,c,d,f,g,h,i};
+Console.Write($"{a},{b},{c},{d},{f},{g},{h},{i} = [{a},{b},{c},{d},{f},{g},{h},{i}]");
