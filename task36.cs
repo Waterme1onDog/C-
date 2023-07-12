@@ -1,0 +1,9 @@
+﻿Random rnd = new Random();
+int a = rnd.Next(-10,10);
+int b = rnd.Next(-10,10);
+int c = rnd.Next(-10,10);
+int d = rnd.Next(-10,10);
+int[] array = {a,b,c,d};
+int sumOddNumbers = array[0] + array[2];
+var str = string.Join(" ", array);
+Console.Write($"Сумма элементов массива , стоящих на нечетных позициях [{str}] = {sumOddNumbers}.");
