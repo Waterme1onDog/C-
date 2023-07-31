@@ -1,59 +1,48 @@
-﻿Console.Write("Введите количество строк:");
-int m = Convert.ToInt32(Console.ReadLine());
-Console.Write("Введите количество столбиков:");
-int n = Convert.ToInt32(Console.ReadLine());
-int[,] randomArray = new int[m, n];
+﻿Console.WriteLine("введите размер прямоугольного массива");
+int arr = Convert.ToInt32(Console.ReadLine());
+int[,] numbers = new int[arr, arr];
+FillArray(numbers);
+PrintArray(numbers);
+int minsum = Int32.MaxValue;
+int index = 0;
 
-void mas(int m, int n)
+for (int i = 0; i < numbers.GetLength(0); i++)
 {
-    int i, j;
-    Random rand = new Random();
-    for (i = 0; i < m; i++)
+    int sum = 0;
+    for (int j = 0; j < numbers.GetLength(1); j++)
     {
-        for (j = 0; j < n; j++)
-        {
-            randomArray[i, j] = rand.Next(0, 10);
-        }
+        sum = sum + numbers[i, j];        
+    }
+    if (sum < minsum)
+    {
+        minsum = sum;
+        index++;
     }
 }
 
-void printArray(int[,] array)
-{
-    int i, j;
-    for (i = 0; i < array.GetLength(0); i++)
-    {
-        Console.WriteLine();
-        for (j = 0; j < array.GetLength(1); j++)
-        {
-            Console.Write($"{array[i, j]}");
-        }
-        Console.WriteLine();
-    }
+Console.WriteLine("строка с наименьшей суммой елементов под номером: " + (index) + ", с суммой елементов равной: " + (minsum));
 
-}
-
-mas(m, n);
-Console.WriteLine("Исходный массив:");
-printArray(randomArray);
-
-void bubble(int[,] array)
+void FillArray(int[,] array)
 {
     for (int i = 0; i < array.GetLength(0); i++)
     {
         for (int j = 0; j < array.GetLength(1); j++)
         {
-            for (int k = 0; k < array.GetLength(1) - 1; k++)
-            {
-                if (array[i, k] < array[i, k + 1])
-                {
-                    int temp = array[i, k + 1];
-                    array[i, k + 1] = array[i, k];
-                    array[i, k] = temp;
-                }
-            }
+            array[i, j] = new Random().Next(0, 10);
         }
     }
 }
-bubble(randomArray);
-Console.WriteLine("Отсортированный массив:");
-printArray(randomArray);
+
+void PrintArray(int[,] array)
+{
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        Console.Write("[ ");
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            Console.Write(array[i, j] + " ");
+        }
+        Console.Write("]");
+        Console.WriteLine("");
+    }
+}
